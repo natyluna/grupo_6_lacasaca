@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-console.log("uploaaad", upload);
+
 // Validaciones
 const validateCreateForms = [
   body("name")
