@@ -1,5 +1,4 @@
 window.addEventListener("DOMContentLoaded", () => {
-  console.log("Conectado");
   let nombre = document.getElementById("nombre");
   let apellido = document.getElementById("apellido");
   let email = document.getElementById("email");

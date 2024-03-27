@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(data => {
           // Manejar la respuesta del servidor si es necesario
-          console.log(data);
+         
         })
         .catch(error => {
           console.error("Error al enviar el formulario:", error);

@@ -9,7 +9,6 @@ const db = require("../database/models");
 
 const controlador = {
   login: (req, res) => {
-    console.log("entra login");
     res.render("users/login");
   },
 
@@ -47,9 +46,8 @@ const controlador = {
 
   usuarios: (req, res) => {
     // let usuario = user;
-    // console.log("usuarios listado", usuario);
     // if (req.file) {
-    //   console.log("entra");
+  
     // }
     // res.render("users/admin", { usuario: usuario });
     db.Usuarios.findAll({
@@ -132,7 +130,6 @@ const controlador = {
       }
 
       const { email, contrasenia } = req.body;
-      console.log("Iniciando");
       // Buscar al usuario en la base de datos utilizando Sequelize
       const usuario = await Usuarios.findOne({ where: { email } });
 
