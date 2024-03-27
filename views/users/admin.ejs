@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/register.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <title>Administracion de Usuarios</title>
+    <link rel="shortcut icon" href="/img/logo 1.png" type="image/x-icon" />
+  </head>
+
+  <body>
+    <%- include('../partials/header.ejs')%>
+    <main>
+      <button class="addProducto"><a href="/register">Agregar Usuario</a></button>
+      <div class="initial">
+        <h3>Administracion de Usuarios</h3>
+      </div>
+
+      <div>
+        <table class="tablaProducto">
+          <thead>
+            <tr>
+              <th class="colProducto">Nombre y Apellido</th>
+              <th class="colProducto">Email</th>
+              <th class="colInfo">Telefono</th>
+              <th class="colInfo">Rol</th>
+              <th class="colInfo">Foto Perfil</th>
+              <th class="colProducto">Acciones</th>
+            </tr>
+
+          </thead>
+          <tbody>
+            <% for (let i=0; i < usuario.length; i++) { %>
+            <tr>
+              
+             <td><%= usuario[i].nombre + " " + usuario[i].apellido %></td>
+             <td><%= usuario[i].email %></td>
+             <td><%= usuario[i].telefono %></td>
+             <td><%= usuario[i].rol %></td>
+             <td><img src="/img/users/<%= usuario[i].url_foto_perfil %>" alt=""></td>
+             <td class="acciones">
+                
+                <div class="formDelete">
+                    <form action="/users/delete/<%= usuario[i].id %>?_method=DELETE" method="POST">
+                      <button type="submit"><i class="fas fa-trash-alt"></i></button>
+                    </form>  
+                </div>
+                <div class="formSave">
+                  <a href="/users/editar/<%= usuario[i].id %>" class="formSave">
+                    <button><i class="far fa-edit"></i></button>
+                  </a>
+                   
+                </div>
+               
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </main>
+    <br />
+  </body>
+
+  <%- include('../partials/footer.ejs')%>
+</html>

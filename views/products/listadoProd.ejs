@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <title>La Casaca</title>
+  </head>
+  <body>
+    <%- include('../partials/header.ejs')%>
+    <main>
+  
+  
+      <section id="mostrador__eleccion" class="d-flex-c">
+        
+        <div class="card__contenedor d-flex-r">
+          <% for (let i=0; i < productos.length; i++) { %>
+          <div class="cardItem d-flex-c centrado">
+            <div class="card__escudos d-flex-r w-75">
+              <img
+                src="/img/escudos/ligaArgentina.png"
+                alt=""
+                class="card__escudo alinear-izq"
+              />
+              <img
+                src="/img/logo.png"
+                alt=""
+                class="card__escudo alinear-der"
+              />
+            </div>
+            <img
+              src="/img/products/<%= productos[i].url_foto %>"
+              alt=""
+              class="card__fotoRemera"
+            />
+            <a href="/detail" class="card__txt">
+              <%= productos[i].nombre %><br />
+            </a>
+            <p><strong><%= productos[i].marca.nombre %></strong></p><br/>
+            <div class="divisor"></div>
+            <div class="d-flex-r w-75">
+              <p class="card__precio alinear-izq">$<%= productos[i].precio %></p>
+              <p class="card__envio alinear-der">ENVIO GRATIS</p>
+            </div>
+          </div>
+          <% } %>
+       
+        </div>
+        
+      </section>
+      
+
+    </main>
+  </body>
+  <%- include('../partials/footer.ejs')%>
+  <script src="/js/loadComponent.js"></script>
+</html>
