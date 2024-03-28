@@ -5,7 +5,7 @@ content {
 
 .content__imagenes {
     background-color: white;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     border-radius: 2%;
 }
 
@@ -41,7 +41,7 @@ content {
 }
 
 .content__talles {
-    margin: 1rem 0 2rem 0;
+    margin-top: 10px;
 }
 
 .content__talles button {
@@ -58,6 +58,20 @@ content {
 .content__talles button:hover {
     background-color: #A1CCEC;
     color: white;
+}
+.agregarCarrito{
+    background-color: #F0F0F0;
+    padding: 7px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 15%;
+    user-select: none;
+}
+
+.agregarCarrito:hover { 
+    background-color: #A1CCEC;
+    color: white;
+    cursor: pointer;
 }
 
 .content__acciones {
@@ -81,7 +95,13 @@ content {
     font-size: 2rem;
     color: #A17D0D;
 }
-
+.carrito{
+    width: 7.5rem;
+    height: 7.2rem;
+    border: 1px solid white;
+    border-radius: 0.375rem;
+    margin-bottom: 1rem;
+}
 .content__acciones p {
     font-size: 0.8rem;
 }

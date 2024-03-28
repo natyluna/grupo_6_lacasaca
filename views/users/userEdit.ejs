@@ -29,12 +29,12 @@
                     <div class="card-input">
                       <label class="titulo" for="usuario">Nombre:</label>
                       <br>
-                      <input class="didi" type="text" id="Nombre" name="Nombre" required value="<%= usuario.Nombre %>">
+                      <input class="didi" type="text" id="Nombre" name="Nombre" required value="<%= usuario.nombre %>">
                     </div>
                     <div class="card-input">
                       <label class="titulo" for="Apellido">Apellido:</label>
                       <br>
-                      <input class="didi" type="text" id="Apellido" name="Apellido" required value="<%= usuario.Apellido %>">
+                      <input class="didi" type="text" id="Apellido" name="Apellido" required value="<%= usuario.apellido %>">
                     </div>
                     <div class="card-input">
                       <label class="titulo" for="usuario">Email:</label>
@@ -44,26 +44,26 @@
                     <div class="card-input">
                       <label class="titulo" for="Telefono">Telefono:</label>
                       <br>
-                      <input class="didi" type="text" id="tel" name="tel" required value="<%= usuario.tel %>"> 
+                      <input class="didi" type="text" id="tel" name="tel" required value="<%= usuario.telefono %>"> 
                     </div>
             
                     <div class="formulario_1">
                       <div class="formulario_label">
                         <label class="titulo" for="nacimiento">Nacimiento:</label>
             
-                        <input class="didi" type="date" id="nacimiento" name="nacimiento" required value="<%= usuario.nacimiento %>">
+                        <input class="didi" type="date" id="nacimiento" name="nacimiento" required value="<%= usuario.fec_nac %>">
                         <br>
                       </div>
                       <div style="display: none;">
-                        <input  type="text" id="type" name="type" value="<%= usuario.type %>">             
+                        <input  type="text" id="type" name="type" value="<%= usuario.rol %>">             
                       </div>
                       <div class="formulario_label">
                         <label class="titulo" for="genero">Genero:</label>
             
                         <select class="didi" name="genero">
-                          <option value="masc" <%= usuario.genero  === 'masc' ? 'selected' : '' %>>Masculino</option>
+                          <option value="masculino" <%= usuario.genero  === 'masculino' ? 'selected' : '' %>>Masculino</option>
             
-                          <option value="fem" <%= usuario.genero  === 'fem' ? 'selected' : '' %>>Femenino</option>
+                          <option value="femenino" <%= usuario.genero  === 'femenino' ? 'selected' : '' %>>Femenino</option>
             
                           <option value="otro" <%= usuario.genero  === 'otro' ? 'selected' : '' %>>Otro</option>
             
@@ -73,7 +73,7 @@
                     </div>
                     <div>
                       <label for="perfil">Foto de perfil</label>
-                      <input type="file" name="fotoPerfil" id="fotoPerfil" value="<%= usuario.fotoPerfil %>">
+                      <input type="file" name="fotoPerfil" id="fotoPerfil" value="<%= usuario.url_foto_perfil %>">
                     </div>
                     <div class="contenedor_ing">
                       <div class="formulario" >
@@ -88,11 +88,11 @@
                           <input class="didi" type="password" id="confirmar_contrasenia" name="confirmar_contrasenia" required value="<%= usuario.confirmar_contrasenia %>"><br>
                         </div>
                         <label>
-                          <input type="checkbox" name="aceptar_terminos" id="aceptar_terminos" required value="<%= usuario.aceptar_terminos %>">
+                          <input type="checkbox" name="aceptar_terminos" id="aceptar_terminos" required value="<%= usuario.tyc %>">
                           Acepto los términos y condiciones
                         </label><br>
                         <label>
-                          <input type="checkbox" name="newsletter" id="newsletter" value="<%= usuario.newsletter %>">
+                          <input type="checkbox" name="newsletter" id="newsletter" value="<%= usuario.novedades %>">
                           Unirme a las novedades
                         </label><br>
                         <a href="#">Politica de privacidad de datos</a>

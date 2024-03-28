@@ -165,7 +165,21 @@ a {
   color: #DEB887;
   
 }
-
+.menuAdmin{
+  background-color: #a1ccec;
+}
+.menuAdmin input{
+  background-color: #a1ccec;
+  border: none;
+  padding: 2px;
+}
+.menuAdmin input:hover{
+  background-color: #a1ccec;
+  font-weight: bold;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+}
 
 /*ESTILOS DE BUSCADORES TIPO CARRUSEL*/
 #buscador__ligas,

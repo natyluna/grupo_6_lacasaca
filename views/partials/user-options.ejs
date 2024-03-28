@@ -5,9 +5,8 @@
                 <p>
                     <%= user.nombre %>
                         <%= user.apellido %>
-
                 </p>
-                <ul>
+                <ul class="menuAdmin">
                     <li>
                         <form  method="get" action="/users/logout">
                             <input type="submit" value="Cerrar Session"></input>
@@ -15,6 +14,7 @@
                         
                     </li>
                     <% if (user.rol == "admin" ){ %>
+                    
                     <li>
                         <form  method="get" action="/productos">
                             <input type="submit" value="Administrar Prod"></input>
