@@ -263,7 +263,7 @@
               alt=""
               class="card__fotoRemera"
             />
-            <a href="/detail" class="card__txt">
+            <a href="/detail/<%= productos[i].id %>" class="card__txt">
               <%= productos[i].nombre %><br />
             </a>
             <p><strong><%= productos[i].marca.nombre %></strong></p><br/>
@@ -276,7 +276,7 @@
         
           <% } %>
         </div>
-        <a href="/listadoProd" class="irPaginaEspecifica">Ver más ingresos</a>
+        <a href="/listadoProd" class="irPaginaEspecifica">Ver todos</a>
       </section>
       <section id="banner__seleccion" class="d-flex-c centrado">
         <p class="banner__selec--txt">Alentá a la selección con</p>
@@ -308,7 +308,7 @@
                 alt=""
                 class="card__fotoRemera"
               />
-              <a href="/detail" class="card__txt">
+              <a href="/detail/<%= productos[i].id %>" class="card__txt">
                 <%= productos[i].nombre %><br />
               </a>
               <p><strong><%= productos[i].marca.nombre %></strong></p><br/>

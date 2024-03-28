@@ -30,6 +30,7 @@ module.exports = (sequelize, dataTypes) => {
     },
     rol: {
       type: dataTypes.STRING,
+      defaultValue: "cliente"
     },
     contrasenia: {
       type: dataTypes.STRING,
