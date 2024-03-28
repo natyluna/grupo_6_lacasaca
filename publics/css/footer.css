@@ -4,6 +4,10 @@
     display: flex;
 }
 
+.logo{
+    padding-inline-start: 2rem;
+    margin: 1rem;
+}
 .logo img{
     width: 65px;
     border-radius: 50%;
@@ -16,7 +20,10 @@
     margin: 2px;
 }
 
-
+.logo h4{
+    color: burlywood;
+    font-size: 20px;
+}
 .flecha {
     direction: ltr;
     width: 16px;
@@ -26,14 +33,24 @@
 
 .logo, .links_, .iconos {
     flex: 1;
+    margin: 1rem;
   }
 
-.logo, .links_ {
-    border-right: 1px solid white;
-    height: 80%;
-    margin-top: 2%;
+.links_ p :hover{
+    color:#a1ccec;
+    font-weight: bold;
 }
-
+.iconos{
+    font-size: 25px;
+}
+.iconos i{
+    margin-right: 3px;
+}
+.iconos i:hover{
+    font-size: 27px;
+    color:burlywood;
+    
+}
 .parrafo p{
     text-align: center;
 }
@@ -82,18 +99,6 @@
     border-radius: 50%;
 }
   
-  
-.logo,
-.links_,
-.iconos {
-    flex: 1;
-}
-  
-.logo,
-.links_ {
-    border-right: 1px solid black;
-    height: 80%;
-    margin-top: 2%;
-}
+ 
 
   
