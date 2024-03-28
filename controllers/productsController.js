@@ -154,37 +154,7 @@ const controlador = {
   },
 
   update: (req, res) => {
-    // const {
-    //   name,
-    //   description,
-    //   category,
-    //   liga,
-    //   team,
-    //   talle,
-    //   precio,
-    //   marca,
-    //   stock,
-    // } = req.body;
-    // const id = parseInt(req.params.id);
-    // const index = product.findIndex((prod) => prod.id === id);
-
-    // if (index === -1) {
-    //   res.render("productos");
-    //   return;
-    // }
-
-    // product[index].name = name;
-    // product[index].description = description;
-    // product[index].category = category;
-    // product[index].liga = liga;
-    // product[index].team = team;
-    // product[index].talle = talle;
-    // product[index].precio = precio;
-    // product[index].marca = marca;
-    // product[index].stock = stock;
-
-    // fs.writeFileSync(productFilePath, JSON.stringify(product), "utf-8");
-    // res.redirect("/productos");
+   
     db.Productos.update(
       {
         nombre: req.body.name,

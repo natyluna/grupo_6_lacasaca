@@ -47,7 +47,6 @@ const controlador = {
   usuarios: (req, res) => {
     // let usuario = user;
     // if (req.file) {
-  
     // }
     // res.render("users/admin", { usuario: usuario });
     db.Usuarios.findAll({
@@ -61,61 +60,46 @@ const controlador = {
   },
 
   destroy: (req, res) => {
-    const { id } = req.params;
-    const usersIndex = user.findIndex((user) => user.id === parseInt(id));
-    user.splice(usersIndex, 1);
-    fs.writeFileSync(userFilePath, JSON.stringify(user), "utf-8");
+    // const { id } = req.params;
+    // const usersIndex = user.findIndex((user) => user.id === parseInt(id));
+    // user.splice(usersIndex, 1);
+    // fs.writeFileSync(userFilePath, JSON.stringify(user), "utf-8");
+    // res.redirect("/users/usuarios");
+    db.Usuarios.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
     res.redirect("/users/usuarios");
   },
 
-  editar: (req, res) => {
+  editar: async(req, res) => {
     let userId = req.params.id;
-    const result = user.find((data) => {
-      if (data.id == userId) {
-        return data;
-      }
-    });
-
+    console.log("id del usuario", userId);
+    
+    const result = await db.Usuarios.findByPk(userId);
     res.render("users/userEdit", { usuario: result });
   },
 
   update: (req, res) => {
-    const {
-      Nombre,
-      Apellido,
-      email,
-      tel,
-      nacimiento,
-      genero,
-      type,
-      contrasenia,
-      fotoPerfil,
-      confirmar_contrasenia,
-      aceptar_terminos,
-      newsletter,
-    } = req.body;
-    const id = parseInt(req.params.id);
-    const index = user.findIndex((user) => user.id === id);
-
-    if (index === -1) {
-      res.render("usuario");
-      return;
-    }
-
-    user[index].Nombre = Nombre;
-    user[index].Apellido = Apellido;
-    user[index].email = email;
-    user[index].tel = tel;
-    user[index].nacimiento = nacimiento;
-    user[index].genero = genero;
-    user[index].type = type;
-    user[index].contrasenia = contrasenia;
-    user[index].confirmar_contrasenia = confirmar_contrasenia;
-    user[index].fotoPerfil = fotoPerfil;
-    user[index].aceptar_terminos = aceptar_terminos;
-    user[index].newsletter = newsletter;
-
-    fs.writeFileSync(userFilePath, JSON.stringify(user), "utf-8");
+    console.log("valores body username",req.body);
+    db.Usuarios.update(
+      {
+        nombre: req.body.Nombre,
+        apellido: req.body.Apellido,
+        email: req.body.email,
+        telefono: req.body.tel,
+        fec_nac: req.body.nacimiento,
+        genero: req.body.genero,
+        url_foto_perfil: req.file.filename, 
+        contrasenia: req.body.contrasenia,
+        confirmar_contrasenia: req.body.confirmar_contrasenia,
+        tyc: req.body.aceptar_terminos,
+        novedades: req.body.newsletter,
+      },
+      { where: { id: req.params.id } }
+    );
+    
     res.redirect("/users/usuarios");
   },
 

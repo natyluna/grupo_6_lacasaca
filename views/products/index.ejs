@@ -233,7 +233,11 @@
             <div class="divisor"></div>
             <div class="d-flex-r w-75">
               <p class="card__precio alinear-izq">$<%= productos[i].precio %></p>
+              <% if(productos[i].precio > 20000){ %>
               <p class="card__envio alinear-der">ENVIO GRATIS</p>
+              <% } else { %>
+                <p class="card__envio alinear-der">Calcular Envio</p>
+                <% } %>
             </div>
           </div>
           <% } %>
