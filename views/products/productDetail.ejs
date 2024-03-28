@@ -17,15 +17,20 @@
     <%- include('../partials/header.ejs')%>
     <content>
       <div class="content__imagenes">
-        <img src="/img/camisetasBoca/camiseta_Boca_2023.png" alt="" />
+        <img src="/img/products/<%= productDet.url_foto %>" alt="" />
       </div>
       <div class="content__descripcion">
         <div class="content__descripcion--titulo">
-          <h1>Camiseta Titular Boca 2023</h1>
-          <h4>Hombre</h4>
+          <h1><%= productDet.nombre%></h1>
+          <h4><%= productDet.marca.nombre%></h4>
           <p>Código de Articulo: 0000123</p>
-          <h1 class="content__descripcion--precio">$33000</h1>
+          <h1 class="content__descripcion--precio">$<%= productDet.precio%></h1>
+          <br>
+          <h4><strong>Descripción:</strong></h4>
+          <p><%= productDet.descripcion%></p>
+          <br>
         </div>
+        
         <div class="content__pagos">
           <hr />
           <div class="content__pagos--opciones">
@@ -41,12 +46,9 @@
           <hr />
         </div>
         <div class="content__talles">
-          <h4>Selecciona tu talle</h4>
-          <button>S</button>
-          <button>M</button>
-          <button>L</button>
-          <button>XL</button>
-          <button>XXL</button>
+          <h4>Talle disponible </h4>
+          <button><%= productDet.talle.toUpperCase() %></button>
+          
         </div>
         <div class="content__acciones">
           <div>

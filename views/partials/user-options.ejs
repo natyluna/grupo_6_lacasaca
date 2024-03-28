@@ -5,6 +5,7 @@
                 <p>
                     <%= user.nombre %>
                         <%= user.apellido %>
+
                 </p>
                 <ul>
                     <li>
@@ -13,6 +14,7 @@
                         </form>
                         
                     </li>
+                    <% if (user.rol == "admin" ){ %>
                     <li>
                         <form  method="get" action="/productos">
                             <input type="submit" value="Administrar Prod"></input>
@@ -23,6 +25,7 @@
                             <input type="submit" value="Administrar User"></input>
                         </form>
                     </li>
+                    <% } %>
                 </ul>
             </li>
         </ul>

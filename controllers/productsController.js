@@ -17,7 +17,6 @@ const controlador = {
         raw: true,
         nest: true
       });
-     console.log("valor prod index",productos);
     res.render("products/index", { productos: productos });
   },
 
@@ -29,8 +28,13 @@ const controlador = {
     res.render("products/productCart");
   },
 
-  detail: (req, res) => {
-    res.render("products/productDetail");
+  detail: async(req, res) => {
+    const productId = req.params.id; 
+    const productDet = await db.Productos.findByPk(productId, {
+      include: [{ association: "equipo" }, { association: "marca" }],
+    });
+    
+    res.render("products/productDetail",{productDet:productDet});
   },
 
   register: (req, res) => {
@@ -54,7 +58,6 @@ const controlador = {
       raw: true,
       nest: true,
     }).then(function (productos) {
-      console.log("trae productooos",productos);
       res.render("products/productList", { productos: productos });
     });
   },
@@ -81,7 +84,6 @@ const controlador = {
   },
 
   guardarProducto: async function (req, res) {
-    console.log("REQUEST",JSON.stringify(req.file,null,2))
     try {
       // Validar los resultados de la validación
       const errors = validationResult(req);
@@ -96,9 +98,9 @@ const controlador = {
         //   errors: errors.array(),
         // });
       }else{
-        console.log("entra el producto guardar");
+
       }
-      console.log("filenames en",req.file.filename);
+
       // Si no hay errores, continuar con la lógica para guardar el producto
       const saveProd= await db.Productos.create({
         /* Campos del producto */
@@ -114,7 +116,7 @@ const controlador = {
         
       });
       saveProd.save();
-      console.log("REQ_FILE#######",req.file)
+  
       res.redirect("/productos");
     } catch (error) {
       console.error("Error al guardar el producto:", error);
