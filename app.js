@@ -45,4 +45,5 @@ app.get("/partials/footer.ejs", (req, res) => {
 });
 
 app.set("view engine", "ejs");
-app.listen(PORT, () => console.log("Server funcionando en puerto " + PORT));
+app.listen(PORT, () => console.log(`Server funcionando en puerto http://localhost:${PORT}`
+));

@@ -134,10 +134,12 @@ a {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
+
 .headerLinks div {
   display: inline-block;
   align-items: center;
 }
+
 .headerLinks a {
   text-align: center;
   display: block;
@@ -150,34 +152,39 @@ a {
 
 /*ESTILO MENU HEADER - SESSION*/
 
-#menu>li>ul{
+#menu>li>ul {
   position: absolute;
   display: none;
 }
+
 #menu>li:hover>ul {
-  display:block;
+  display: block;
 }
 
 #menu {
- color: #a1ccec;
+  color: #a1ccec;
 }
+
 #menu:hover {
   color: #DEB887;
-  
+
 }
-.menuAdmin{
+
+.menuAdmin {
   background-color: #a1ccec;
 }
-.menuAdmin input{
+
+.menuAdmin input {
   background-color: #a1ccec;
   border: none;
   padding: 2px;
 }
-.menuAdmin input:hover{
+
+.menuAdmin input:hover {
   background-color: #a1ccec;
   font-weight: bold;
   border: none;
-  
+
   padding: 2px;
   cursor: pointer;
 }
@@ -223,7 +230,7 @@ a {
   height: 40px;
 }
 
-.flechasCarrusel > svg {
+.flechasCarrusel>svg {
   background-color: white;
 }
 
@@ -235,9 +242,11 @@ a {
     flex-direction: column;
     padding-bottom: 1rem;
   }
+
   .headerNavBar__busqueda input[type="text"] {
     width: 100%;
   }
+
   .headerNavBar__busqueda {
     margin-left: 0;
     padding-bottom: 1rem;
@@ -313,10 +322,47 @@ a {
   background-attachment: fixed;
 }
 
+
 #banner__seleccion .banner__selec--txt {
   font-size: 3rem;
   color: rgba(28, 28, 28, 0.85);
   padding: 0.8rem;
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.55);
+}
+
+/*PRODUCT - PAGINATION*/
+.content-pagination {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.product-pagination {
+  background-color: #072E51;
+  color: white;
+  margin: 5px;
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 15%;
+}
+
+.product-pagination:hover {
+  background-color: white;
+  color: #072E51;
+  transition: ease-in-out .2s;
+}
+
+.pagination-block:hover {
+  background-color: gray;
+  color: white;
+  transition: none;
+
+}
+
+.pagination-block {
+  background-color: gray;
+  color: white;
+  pointer-events: none;
+  cursor: default;
 }

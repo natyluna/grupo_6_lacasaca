@@ -9,11 +9,11 @@
                 <ul class="menuAdmin">
                     <li>
                         <form  method="get" action="/users/logout">
-                            <input type="submit" value="Cerrar Session"></input>
+                            <input type="submit" value="Cerrar Sesion"></input>
                         </form>
                         
                     </li>
-                    <% if (user.rol == "admin" ){ %>
+                    <% if (user.rol.toLowerCase() == "admin" ){ %>
                     
                     <li>
                         <form  method="get" action="/productos">

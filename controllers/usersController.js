@@ -75,14 +75,12 @@ const controlador = {
 
   editar: async(req, res) => {
     let userId = req.params.id;
-    console.log("id del usuario", userId);
     
     const result = await db.Usuarios.findByPk(userId);
     res.render("users/userEdit", { usuario: result });
   },
 
   update: (req, res) => {
-    console.log("valores body username",req.body);
     db.Usuarios.update(
       {
         nombre: req.body.Nombre,

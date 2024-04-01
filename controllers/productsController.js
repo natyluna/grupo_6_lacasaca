@@ -7,7 +7,8 @@ const db = require("../database/models");
 const { Association } = require("sequelize");
 const { validationResult } = require("express-validator");
 const { promises } = require("stream");
-
+let pageSelect =0
+const limit = 3;
 const controlador = {
   index: async(req, res) => {
     //let productos = product;
@@ -62,18 +63,43 @@ const controlador = {
     });
   },
 
-  listadoProd: (req, res) => {
-   
-    db.Productos.findAll({
-      include: [{ association: "equipo" }, { association: "marca" }],
-      raw: true,
-      nest: true,
-    }).then(function (productos) {
-      
-      res.render("products/listadoProd", { productos: productos });
-    });
-  },
+  listadoProd: async (req, res) => {
+    const page = Number(req?.query?.page);
+    const limit = 3; 
+    const pageSelect = !page ? 1 : page; 
 
+    const productsCount = await db.Productos.count();
+    const pagesLength = Math.ceil(productsCount / limit); 
+    let offset = 0;
+    if (pageSelect > 0 && pageSelect <= pagesLength) {
+        offset = (pageSelect - 1) * limit;
+    } else if (pageSelect > pagesLength) {
+        res.redirect(`/listadoProd?page=${pagesLength}`);
+        return; 
+    } else {
+        res.redirect(`/listadoProd?page=1`);
+        return; 
+    }
+
+    db.Productos.findAll({
+        include: [{ association: "equipo" }, { association: "marca" }],
+        offset: offset,
+        limit: limit,
+        raw: true,
+        nest: true,
+    }).then(function (productos) {
+        const sourcePagination = `
+            <a class="product-pagination ${pageSelect <= 1 ? 'pagination-block' : ''}" href="/listadoProd?page=${pageSelect <= 1 ? 1 : pageSelect - 1}"><i class="fas fa-chevron-circle-left"></i></a>
+            <a class="product-pagination ${pageSelect >= pagesLength ? 'pagination-block' : ''}" href="/listadoProd?page=${pageSelect >= pagesLength ? pagesLength : pageSelect + 1}"><i class="fas fa-chevron-circle-right"></i></a>
+        `;
+        res.render("products/listadoProd", { productos: productos, sourcePagination: sourcePagination });
+    }).catch(function (error) {
+        console.error("Error al consultar productos:", error);
+        res.status(500).send("Error al consultar productos");
+    });
+},
+  
+  
   crearProducto: async (req, res) => {
     const equipos = await db.Equipos.findAll();
     const marcas = await db.Marcas.findAll();
@@ -120,7 +146,7 @@ const controlador = {
       res.redirect("/productos");
     } catch (error) {
       console.error("Error al guardar el producto:", error);
-      res.status(500).send("Error interno del servidor");
+      res.status(0).send("Error interno del servidor");
     }
   },
 
