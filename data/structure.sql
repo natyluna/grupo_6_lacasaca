@@ -14,7 +14,8 @@ CREATE TABLE USUARIOS (
     contrasenia MEDIUMTEXT NOT NULL,
     confirmar_contrasenia MEDIUMTEXT NOT NULL,
     tyc TINYINT NOT NULL,
-    novedades TINYINT NOT NULL
+    novedades TINYINT NOT NULL,
+    rol MEDIUMTEXT
 );
 
 -- Crear la tabla LIGAS
